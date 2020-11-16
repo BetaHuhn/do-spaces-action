@@ -3,7 +3,7 @@ const fs = require('fs')
 const path = require('path')
 const S3 = require('./interface')
 
-const SOURCE_DIR = core.getInput('source_dir', {
+const SOURCE = core.getInput('source', {
 	required: true
 })
 const OUT_DIR = core.getInput('out_dir', {
@@ -46,7 +46,7 @@ const getVersion = function(value) {
 
 async function run() {
 	try {
-		const sourceDir = path.join(process.cwd(), SOURCE_DIR)
+		const source = path.join(process.cwd(), SOURCE)
 		const permission = PERMISSION || 'public-read'
 
 		let outDir = OUT_DIR
@@ -67,25 +67,36 @@ async function run() {
 		}
 		const s3 = new S3(config)
 
-		const uploadFolder = async (currentFolder) => {
+		const isFile = await fs.promises.stat(source).isFile()
+		if (isFile) {
+			const fileName = path.basename(source)
+			const s3Path = path.join(outDir, fileName)
 
-			const files = await fs.promises.readdir(currentFolder)
+			outDir = path.join(outDir, fileName)
 
-			files.forEach(async (file) => {
-				const fullPath = path.join(currentFolder, file)
-				const stat = await fs.promises.stat(fullPath)
+			core.debug('Uploading file: ' + s3Path)
+			await s3.upload(source, s3Path)
+		} else {
+			core.debug('Uploading directory')
+			const uploadFolder = async (currentFolder) => {
+				const files = await fs.promises.readdir(currentFolder)
 
-				if (stat.isFile()) {
-					const s3Path = path.join(outDir, path.relative(sourceDir, fullPath))
-					core.debug('Uploading: ' + s3Path)
-					await s3.upload(fullPath, s3Path)
-				} else {
-					uploadFolder(fullPath)
-				}
-			})
+				files.forEach(async (file) => {
+					const fullPath = path.join(currentFolder, file)
+					const stat = await fs.promises.stat(fullPath)
+
+					if (stat.isFile()) {
+						const s3Path = path.join(outDir, path.relative(source, fullPath))
+						core.debug('Uploading: ' + s3Path)
+						await s3.upload(fullPath, s3Path)
+					} else {
+						uploadFolder(fullPath)
+					}
+				})
+			}
+
+			await uploadFolder(source)
 		}
-
-		await uploadFolder(sourceDir)
 
 		const outputPath = CDN_DOMAIN ? `https://${ CDN_DOMAIN }/${ outDir }` : `https://${ SPACE_NAME }.${ SPACE_REGION }.digitaloceanspaces.com/${ outDir }`
 

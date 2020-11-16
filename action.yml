@@ -2,8 +2,8 @@ name: 'DO-Spaces-Action'
 description: 'Upload directory/file to DigitalOcean Spaces via GitHub Actions.'
 author: 'BetaHuhn'
 inputs:
-  source_dir:
-    description: 'Source directory to upload'
+  source:
+    description: 'Source directory/file to upload'
     required: true
   out_dir:
     description: 'Output folder in your DO space'
