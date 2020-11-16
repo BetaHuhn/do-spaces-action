@@ -20,6 +20,9 @@ inputs:
   secret_key:
     description: 'DO secret key'
     required: true
+  versioning:
+    description: 'Use packge.json version as sub directory'
+    required: false
   permission:
     description: 'DO secret key'
     required: false

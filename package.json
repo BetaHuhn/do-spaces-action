@@ -1,6 +1,6 @@
 {
   "name": "do-spaces-action",
-  "version": "0.1.3-beta",
+  "version": "0.1.10-beta",
   "description": "Upload directory/file to DigitalOcean Spaces via GitHub Actions.",
   "main": "src/index.js",
   "scripts": {

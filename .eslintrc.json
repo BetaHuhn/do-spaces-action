@@ -1,3 +1,7 @@
 {
-    "extends": "@betahuhn/eslint-config-node"
+    "extends": "@betahuhn/eslint-config-node",
+    "rules": {
+        "no-extra-boolean-cast": 0,
+        "no-implicit-coercion": 0
+    }
 }

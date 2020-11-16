@@ -21,18 +21,39 @@ const ACCESS_KEY = core.getInput('access_key', {
 const SECRET_KEY = core.getInput('secret_key', {
 	required: true
 })
+const VERSIONING = core.getInput('versioning', {
+	required: false
+})
 const PERMISSION = core.getInput('permission', {
 	required: false
 })
 
-/* const runId = process.env.GITHUB_RUN_ID
-const repo = process.env.GITHUB_REPOSITORY
-const workflow = process.env.GITHUB_WORKFLOW */
+const getVersion = function(value) {
+	try {
+		const pkgPath = (typeof value === 'string' && value !== 'true') ? value : ''
+		const raw = fs.readFileSync(path.join(pkgPath, 'package.json')).toString()
+		const version = JSON.parse(raw).version
+		if (!version) return ''
+
+		return version.charAt(0) !== 'v' ? `v${ version }` : version
+	} catch (err) {
+		return ''
+	}
+}
 
 async function run() {
 	try {
 		const sourceDir = path.join(process.cwd(), SOURCE_DIR)
 		const permission = PERMISSION || 'public-read'
+
+		let outDir = OUT_DIR
+		if (VERSIONING !== undefined && VERSIONING !== false) {
+			const version = getVersion(VERSIONING)
+			core.debug('using version: ' + version)
+			outDir = path.join(OUT_DIR, version)
+		}
+
+		core.debug(outDir)
 
 		const config = {
 			bucket: SPACE_NAME,
@@ -52,8 +73,8 @@ async function run() {
 				const stat = await fs.promises.stat(fullPath)
 
 				if (stat.isFile()) {
-					const s3Path = path.join(OUT_DIR, path.relative(sourceDir, fullPath))
-					core.debug(s3Path)
+					const s3Path = path.join(outDir, path.relative(sourceDir, fullPath))
+					core.debug('Uploading: ' + s3Path)
 					await s3.upload(fullPath, s3Path)
 				} else {
 					uploadFolder(fullPath)
@@ -63,7 +84,10 @@ async function run() {
 
 		await uploadFolder(sourceDir)
 
-		core.info(`Files uploaded to ${ SPACE_REGION }.digitaloceanspaces.com/${ OUT_DIR }`)
+		const outputPath = `${ SPACE_NAME }.${ SPACE_REGION }.digitaloceanspaces.com/${ outDir }`
+
+		core.info(`Files uploaded to ${ outputPath }`)
+		core.setOutput('output_url', outputPath)
 
 	} catch (err) {
 		core.debug(err)
