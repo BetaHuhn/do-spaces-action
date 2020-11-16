@@ -1,18 +1,17 @@
-name: "build"
+name: Build
 on:
-  pull_request:
   push:
-    branches:
-      - main
-      - develop
-      - 'releases/*'
+    branches: [ master, develop ]
+  pull_request:
+    branches: [ master, develop ]
 jobs:
   build:
     runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, '[skip-build]')"
     steps:
       - uses: actions/checkout@v2
       - uses: c-hive/gha-npm-cache@v1
       - name: Install dependencies
         run: npm ci
-      - name: Build
+      - name: Run build command
         run: npm run build
