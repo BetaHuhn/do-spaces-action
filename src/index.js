@@ -67,7 +67,8 @@ async function run() {
 		}
 		const s3 = new S3(config)
 
-		const isFile = await fs.promises.stat(source).isFile()
+		const fileStat = await fs.promises.stat(source)
+		const isFile = fileStat.isFile()
 		if (isFile) {
 			const fileName = path.basename(source)
 			const s3Path = path.join(outDir, fileName)
