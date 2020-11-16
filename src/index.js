@@ -32,6 +32,7 @@ const workflow = process.env.GITHUB_WORKFLOW */
 async function run() {
 	try {
 		const sourceDir = path.join(process.cwd(), SOURCE_DIR)
+		core.info(sourceDir)
 		const permission = PERMISSION || 'public-read'
 
 		const config = {
@@ -51,10 +52,12 @@ async function run() {
 
 			files.forEach(async (file) => {
 				const fullPath = path.join(currentFolder, file)
+				core.info(fullPath)
 				const stat = await fs.promises.stat(fullPath)
 
 				if (stat.isFile()) {
-					const s3Path = `${ OUT_DIR }/${ fullPath }`
+					const s3Path = path.join(OUT_DIR, path.relative(sourceDir, fullPath))
+					core.info(s3Path)
 					await s3.upload(fullPath, s3Path)
 				} else {
 					uploadFolder(fullPath)
@@ -64,7 +67,7 @@ async function run() {
 
 		uploadFolder(sourceDir)
 
-		core.debug(`Files uploaded to ${ SPACE_REGION }.digitaloceanspaces.com/${ OUT_DIR }`)
+		core.info(`Files uploaded to ${ SPACE_REGION }.digitaloceanspaces.com/${ OUT_DIR }`)
 
 	} catch (err) {
 		core.debug(err)
