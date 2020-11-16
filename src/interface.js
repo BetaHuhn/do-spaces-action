@@ -1,5 +1,6 @@
 const AWS = require('aws-sdk')
 const fs = require('fs')
+const { lookup } = require('mime-types')
 
 class S3Interface {
 	constructor(config) {
@@ -25,7 +26,8 @@ class S3Interface {
 				Body: fileStream,
 				Bucket: this.bucket,
 				Key: path,
-				ACL: this.permission
+				ACL: this.permission,
+				ContentType: lookup(file) || 'text/plain'
 			}
 
 			this.s3.upload(options, (err, data) => {
