@@ -1,0 +1,35 @@
+{
+  "name": "do-spaces-action",
+  "version": "0.1.0-beta",
+  "description": "Upload directory/file to DigitalOcean Spaces via GitHub Actions.",
+  "main": "src/index.js",
+  "scripts": {
+    "lint": "eslint ./src",
+    "build": "ncc build src/index.js -o dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/betahuhn/do-spaces-action.git"
+  },
+  "keywords": [
+    "GitHub",
+    "Actions",
+    "DigitalOcean",
+    "CDN"
+  ],
+  "author": "Maximilian Schiller <schiller@mxis.ch>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/betahuhn/do-spaces-action/issues"
+  },
+  "homepage": "https://github.com/betahuhn/do-spaces-action#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "aws-sdk": "^2.792.0"
+  },
+  "devDependencies": {
+    "@betahuhn/eslint-config-node": "^0.1.1",
+    "@vercel/ncc": "^0.24.0",
+    "eslint": "^7.13.0"
+  }
+}

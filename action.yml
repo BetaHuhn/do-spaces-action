@@ -1,0 +1,31 @@
+name: 'DO-Spaces-Action'
+description: 'Upload directory/file to DigitalOcean Spaces via GitHub Actions.'
+author: 'BetaHuhn'
+inputs:
+  source_dir:
+    description: 'Source directory to upload'
+    required: true
+  out_dir:
+    description: 'Output folder in your DO space'
+    required: false
+  space_name:
+    description: 'Name of your DO space'
+    required: true
+  space_region:
+    description: 'Region of your DO space'
+    required: true
+  access_key:
+    description: 'DO access key'
+    required: true
+  secret_key:
+    description: 'DO secret key'
+    required: true
+  permission:
+    description: 'DO secret key'
+    required: false
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
+branding:
+  icon: 'bell'
+  color: 'purple'
