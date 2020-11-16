@@ -24,6 +24,9 @@ const SECRET_KEY = core.getInput('secret_key', {
 const VERSIONING = core.getInput('versioning', {
 	required: false
 })
+const CDN_DOMAIN = core.getInput('cdn_domain', {
+	required: false
+})
 const PERMISSION = core.getInput('permission', {
 	required: false
 })
@@ -84,7 +87,7 @@ async function run() {
 
 		await uploadFolder(sourceDir)
 
-		const outputPath = `${ SPACE_NAME }.${ SPACE_REGION }.digitaloceanspaces.com/${ outDir }`
+		const outputPath = CDN_DOMAIN ? `https://${ CDN_DOMAIN }/${ outDir }` : `https://${ SPACE_NAME }.${ SPACE_REGION }.digitaloceanspaces.com/${ outDir }`
 
 		core.info(`Files uploaded to ${ outputPath }`)
 		core.setOutput('output_url', outputPath)

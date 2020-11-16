@@ -23,6 +23,9 @@ inputs:
   versioning:
     description: 'Use packge.json version as sub directory'
     required: false
+  cdn_domain:
+    description: 'DO Spaces CDN domain'
+    required: false
   permission:
     description: 'DO secret key'
     required: false
