@@ -25,7 +25,7 @@
   "homepage": "https://github.com/betahuhn/do-spaces-action#readme",
   "dependencies": {
     "@actions/core": "^1.2.6",
-    "aws-sdk": "^2.792.0"
+    "aws-sdk": "^2.793.0"
   },
   "devDependencies": {
     "@betahuhn/eslint-config-node": "^0.1.1",
