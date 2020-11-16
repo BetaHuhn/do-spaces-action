@@ -239,7 +239,7 @@ Here is what's currently planned for [do-spaces-action](https://github.com/BetaH
 - **Automatic minifying:** minify js files before uploading them
 - **Different environments:** add the option to change the upload path pased on the environment (staging/production)
 
-If you have an idea, feel free to [open an issue](https://github.com/BetaHuhn/do-spaces-action/issues/new)!
+If you have an idea, feel free to [open an issue](https://github.com/BetaHuhn/do-spaces-action/issues/new?labels=feature+request&template=feature_request.md)!
 
 ## 💻 Development
 
