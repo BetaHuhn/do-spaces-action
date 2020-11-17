@@ -1,5 +1,5 @@
-name: 'DO-Spaces-Action'
-description: 'Upload directory/file to DigitalOcean Spaces via GitHub Actions.'
+name: 'DigitalOcean Spaces Upload Action'
+description: 'Upload directories/files to DigitalOcean Spaces via GitHub Actions. Supports package/library versioning.'
 author: 'BetaHuhn'
 inputs:
   source:
@@ -33,5 +33,5 @@ runs:
   using: 'node12'
   main: 'dist/index.js'
 branding:
-  icon: 'bell'
-  color: 'purple'
+  icon: 'package'
+  color: 'grey-dark'

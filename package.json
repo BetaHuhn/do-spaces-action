@@ -1,7 +1,7 @@
 {
   "name": "do-spaces-action",
-  "version": "0.1.13-beta",
-  "description": "Upload directory/file to DigitalOcean Spaces via GitHub Actions.",
+  "version": "1.0.0",
+  "description": "Upload directories/files to DigitalOcean Spaces via GitHub Actions. Supports package/library versioning.",
   "main": "src/index.js",
   "scripts": {
     "lint": "eslint ./src",
@@ -16,6 +16,8 @@
     "GitHub",
     "Actions",
     "DigitalOcean",
+    "DigitalOcean-Spaces",
+    "Spaces",
     "CDN"
   ],
   "author": "Maximilian Schiller <schiller@mxis.ch>",
