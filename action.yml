@@ -34,4 +34,4 @@ runs:
   main: 'dist/index.js'
 branding:
   icon: 'package'
-  color: 'grey-dark'
+  color: 'gray-dark'
