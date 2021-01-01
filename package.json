@@ -33,6 +33,6 @@
   "devDependencies": {
     "@betahuhn/config": "^1.0.2",
     "@vercel/ncc": "^0.25.1",
-    "eslint": "^7.13.0"
+    "eslint": "^7.16.0"
   }
 }
