@@ -44,13 +44,14 @@ const getVersion = function(value) {
 	}
 }
 
-async function run() {
+const run = async function() {
 	try {
 		const source = path.join(process.cwd(), SOURCE)
 		const permission = PERMISSION || 'public-read'
+		const versioning = VERSIONING !== undefined && VERSIONING !== false
 
 		let outDir = OUT_DIR
-		if (VERSIONING !== undefined && VERSIONING !== false) {
+		if (versioning) {
 			const version = getVersion(VERSIONING)
 			core.debug('using version: ' + version)
 			outDir = path.join(OUT_DIR, version)
@@ -73,10 +74,15 @@ async function run() {
 			const fileName = path.basename(source)
 			const s3Path = path.join(outDir, fileName)
 
-			outDir = path.join(outDir, fileName)
-
 			core.debug('Uploading file: ' + s3Path)
 			await s3.upload(source, s3Path)
+
+			if (versioning) {
+				const s3PathLatest = path.join(OUT_DIR, 'latest', fileName)
+
+				core.debug('Uploading file to latest: ' + s3PathLatest)
+				await s3.upload(source, s3PathLatest)
+			}
 		} else {
 			core.debug('Uploading directory')
 			const uploadFolder = async (currentFolder) => {
@@ -88,8 +94,14 @@ async function run() {
 
 					if (stat.isFile()) {
 						const s3Path = path.join(outDir, path.relative(source, fullPath))
-						core.debug('Uploading: ' + s3Path)
+						core.debug('Uploading file: ' + s3Path)
 						await s3.upload(fullPath, s3Path)
+
+						if (versioning) {
+							const s3PathLatest = path.join(OUT_DIR, 'latest', path.relative(source, fullPath))
+							core.debug('Uploading file to latest: ' + s3PathLatest)
+							await s3.upload(fullPath, s3PathLatest)
+						}
 					} else {
 						uploadFolder(fullPath)
 					}
