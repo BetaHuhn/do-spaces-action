@@ -5,8 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "lint": "eslint ./src",
-    "build": "ncc build src/index.js -o dist",
-    "prepare": "npm run build"
+    "build": "ncc build src/index.js -o dist"
   },
   "repository": {
     "type": "git",
@@ -32,7 +31,7 @@
     "mime-types": "^2.1.27"
   },
   "devDependencies": {
-    "@betahuhn/eslint-config-node": "^0.1.1",
+    "@betahuhn/config": "^1.0.2",
     "@vercel/ncc": "^0.25.1",
     "eslint": "^7.13.0"
   }
