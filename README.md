@@ -134,6 +134,10 @@ jobs:
 - `v2.3.0` -> `https://SPACE.fra1.digitaloceanspaces.com/js/v2.3.0/index.min.js`
 - `v2.4.0` -> `https://SPACE.fra1.digitaloceanspaces.com/js/v2.4.0/index.min.js`
 
+The most recent version will be available with the `latest` tag:
+
+- `latest` -> `https://SPACE.fra1.digitaloceanspaces.com/js/latest/index.min.js`
+
 ```yml
 name: Upload to DO Spaces
 on:
@@ -236,7 +240,6 @@ Here's how that will look on your Repo:
 
 Here is what's currently planned for [do-spaces-action](https://github.com/BetaHuhn/do-spaces-action):
 
-- **Automatic minifying:** minify js files before uploading them
 - **Different environments:** add the option to change the upload path pased on the environment (staging/production)
 
 If you have an idea, feel free to [open an issue](https://github.com/BetaHuhn/do-spaces-action/issues/new?labels=feature+request&template=feature_request.md)!
