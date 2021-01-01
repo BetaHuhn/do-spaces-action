@@ -1,6 +1,6 @@
 {
   "name": "do-spaces-action",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Upload directories/files to DigitalOcean Spaces via GitHub Actions. Supports package/library versioning.",
   "main": "src/index.js",
   "scripts": {
@@ -27,7 +27,7 @@
   "homepage": "https://github.com/betahuhn/do-spaces-action#readme",
   "dependencies": {
     "@actions/core": "^1.2.6",
-    "aws-sdk": "^2.793.0",
+    "aws-sdk": "^2.819.0",
     "mime-types": "^2.1.27"
   },
   "devDependencies": {
