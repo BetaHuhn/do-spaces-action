@@ -1,4 +1,11 @@
+blank_issues_enabled: false
 contact_links:
   - name: 📚 Docs
-    url: https://github.com/BetaHuhn/do-spaces-action#%EF%B8%8F-configuration
-    about: Checkout do-spaces-action's documentation before you open an issue.
+    url: https://github.com/BetaHuhn/do-spaces-action#-usage
+    about: Checkout do-spaces-action's documentation.
+  - name: 🚀 Feature Request
+    url: https://github.com/BetaHuhn/do-spaces-action/discussions/new?category=ideas
+    about: Share ideas for new features
+  - name: ❓ Ask a Question
+    url: https://github.com/BetaHuhn/do-spaces-action/discussions/new?category=q-a
+    about: Ask the community for help
