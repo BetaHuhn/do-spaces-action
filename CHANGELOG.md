@@ -1,3 +1,13 @@
+## [v1.1.3] - 2021-01-25
+
+[Release notes](https://github.com/betahuhn/do-spaces-action/releases/tag/v1.1.3) · [Compare](https://github.com/betahuhn/do-spaces-action/compare/v1.1.2...v1.1.3) · [Tag](https://github.com/betahuhn/do-spaces-action/tree/v1.1.3) · Archive ([zip](https://github.com/betahuhn/do-spaces-action/archive/v1.1.3.zip) · [tar.gz](https://github.com/betahuhn/do-spaces-action/archive/v1.1.3.tar.gz))
+
+### Dependency updates
+
+- [`b6ba8a6`](https://github.com/betahuhn/do-spaces-action/commit/b6ba8a6)  Bump eslint from 7.17.0 to 7.18.0
+- [`505d911`](https://github.com/betahuhn/do-spaces-action/commit/505d911)  Bump aws-sdk from 2.828.0 to 2.829.0
+- [`0600d25`](https://github.com/betahuhn/do-spaces-action/commit/0600d25)  Bump aws-sdk from 2.829.0 to 2.830.0
+
 ## [v1.1.2] - 2021-01-18
 
 [Release notes](https://github.com/betahuhn/do-spaces-action/releases/tag/v1.1.2) · [Compare](https://github.com/betahuhn/do-spaces-action/compare/v1.1.1...v1.1.2) · [Tag](https://github.com/betahuhn/do-spaces-action/tree/v1.1.2) · Archive ([zip](https://github.com/betahuhn/do-spaces-action/archive/v1.1.2.zip) · [tar.gz](https://github.com/betahuhn/do-spaces-action/archive/v1.1.2.tar.gz))
