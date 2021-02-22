@@ -1,3 +1,18 @@
+## [v1.1.7] - 2021-02-22
+
+[Release notes](https://github.com/betahuhn/do-spaces-action/releases/tag/v1.1.7) · [Compare](https://github.com/betahuhn/do-spaces-action/compare/v1.1.6...v1.1.7) · [Tag](https://github.com/betahuhn/do-spaces-action/tree/v1.1.7) · Archive ([zip](https://github.com/betahuhn/do-spaces-action/archive/v1.1.7.zip) · [tar.gz](https://github.com/betahuhn/do-spaces-action/archive/v1.1.7.tar.gz))
+
+### Dependency updates
+
+- [`cab839a`](https://github.com/betahuhn/do-spaces-action/commit/cab839a)  Bump aws-sdk from 2.842.0 to 2.843.0
+- [`94ebaa5`](https://github.com/betahuhn/do-spaces-action/commit/94ebaa5)  Bump eslint from 7.19.0 to 7.20.0
+- [`d099cde`](https://github.com/betahuhn/do-spaces-action/commit/d099cde)  Bump pascalgn/automerge-action from v0.13.0 to v0.13.1
+- [`c8c27c2`](https://github.com/betahuhn/do-spaces-action/commit/c8c27c2)  Bump aws-sdk from 2.843.0 to 2.844.0
+- [`876399d`](https://github.com/betahuhn/do-spaces-action/commit/876399d)  Bump aws-sdk from 2.844.0 to 2.845.0
+- [`d40bd17`](https://github.com/betahuhn/do-spaces-action/commit/d40bd17)  Bump mime-types from 2.1.28 to 2.1.29
+- [`709c756`](https://github.com/betahuhn/do-spaces-action/commit/709c756)  Bump aws-sdk from 2.845.0 to 2.846.0
+- [`f2d813f`](https://github.com/betahuhn/do-spaces-action/commit/f2d813f)  Bump aws-sdk from 2.846.0 to 2.847.0
+
 ## [v1.1.6] - 2021-02-15
 
 [Release notes](https://github.com/betahuhn/do-spaces-action/releases/tag/v1.1.6) · [Compare](https://github.com/betahuhn/do-spaces-action/compare/v1.1.5...v1.1.6) · [Tag](https://github.com/betahuhn/do-spaces-action/tree/v1.1.6) · Archive ([zip](https://github.com/betahuhn/do-spaces-action/archive/v1.1.6.zip) · [tar.gz](https://github.com/betahuhn/do-spaces-action/archive/v1.1.6.tar.gz))
