@@ -1,3 +1,17 @@
+## [v1.1.8] - 2021-03-01
+
+[Release notes](https://github.com/betahuhn/do-spaces-action/releases/tag/v1.1.8) · [Compare](https://github.com/betahuhn/do-spaces-action/compare/v1.1.7...v1.1.8) · [Tag](https://github.com/betahuhn/do-spaces-action/tree/v1.1.8) · Archive ([zip](https://github.com/betahuhn/do-spaces-action/archive/v1.1.8.zip) · [tar.gz](https://github.com/betahuhn/do-spaces-action/archive/v1.1.8.tar.gz))
+
+### Dependency updates
+
+- [`6acc0e4`](https://github.com/betahuhn/do-spaces-action/commit/6acc0e4)  Bump aws-sdk from 2.847.0 to 2.848.0
+- [`fb1191c`](https://github.com/betahuhn/do-spaces-action/commit/fb1191c)  Bump stefanzweifel/git-auto-commit-action
+- [`46b829a`](https://github.com/betahuhn/do-spaces-action/commit/46b829a)  Bump aws-sdk from 2.848.0 to 2.849.0
+- [`25a8ac5`](https://github.com/betahuhn/do-spaces-action/commit/25a8ac5)  Bump aws-sdk from 2.849.0 to 2.850.0
+- [`1ee0271`](https://github.com/betahuhn/do-spaces-action/commit/1ee0271)  Bump stefanzweifel/git-auto-commit-action
+- [`e5afdc1`](https://github.com/betahuhn/do-spaces-action/commit/e5afdc1)  Bump aws-sdk from 2.850.0 to 2.851.0
+- [`ffe675d`](https://github.com/betahuhn/do-spaces-action/commit/ffe675d)  Bump aws-sdk from 2.851.0 to 2.852.0
+
 ## [v1.1.7] - 2021-02-22
 
 [Release notes](https://github.com/betahuhn/do-spaces-action/releases/tag/v1.1.7) · [Compare](https://github.com/betahuhn/do-spaces-action/compare/v1.1.6...v1.1.7) · [Tag](https://github.com/betahuhn/do-spaces-action/tree/v1.1.7) · Archive ([zip](https://github.com/betahuhn/do-spaces-action/archive/v1.1.7.zip) · [tar.gz](https://github.com/betahuhn/do-spaces-action/archive/v1.1.7.tar.gz))
