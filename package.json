@@ -28,7 +28,7 @@
   "dependencies": {
     "@actions/core": "^1.2.6",
     "aws-sdk": "^2.877.0",
-    "mime-types": "^2.1.29"
+    "mime-types": "^2.1.30"
   },
   "devDependencies": {
     "@betahuhn/config": "^1.0.2",
