@@ -1,3 +1,19 @@
+## [v1.1.15] - 2021-04-19
+
+[Release notes](https://github.com/betahuhn/do-spaces-action/releases/tag/v1.1.15) · [Compare](https://github.com/betahuhn/do-spaces-action/compare/v1.1.14...v1.1.15) · [Tag](https://github.com/betahuhn/do-spaces-action/tree/v1.1.15) · Archive ([zip](https://github.com/betahuhn/do-spaces-action/archive/v1.1.15.zip) · [tar.gz](https://github.com/betahuhn/do-spaces-action/archive/v1.1.15.tar.gz))
+
+### Dependency updates
+
+- [`53a1f72`](https://github.com/betahuhn/do-spaces-action/commit/53a1f72)  Bump aws-sdk from 2.883.0 to 2.884.0
+- [`5df7050`](https://github.com/betahuhn/do-spaces-action/commit/5df7050)  Bump eslint from 7.23.0 to 7.24.0
+- [`816a7c4`](https://github.com/betahuhn/do-spaces-action/commit/816a7c4)  Bump @vercel/ncc from 0.28.2 to 0.28.3
+- [`9b8d158`](https://github.com/betahuhn/do-spaces-action/commit/9b8d158)  Bump aws-sdk from 2.884.0 to 2.885.0
+- [`2877a3f`](https://github.com/betahuhn/do-spaces-action/commit/2877a3f)  Bump @betahuhn/config from 1.0.2 to 1.1.0
+- [`5dc0194`](https://github.com/betahuhn/do-spaces-action/commit/5dc0194)  Bump @actions/core from 1.2.6 to 1.2.7
+- [`eb154af`](https://github.com/betahuhn/do-spaces-action/commit/eb154af)  Bump aws-sdk from 2.885.0 to 2.886.0
+- [`0708f80`](https://github.com/betahuhn/do-spaces-action/commit/0708f80)  Bump aws-sdk from 2.886.0 to 2.887.0
+- [`a137640`](https://github.com/betahuhn/do-spaces-action/commit/a137640)  Bump aws-sdk from 2.887.0 to 2.888.0
+
 ## [v1.1.14] - 2021-04-12
 
 [Release notes](https://github.com/betahuhn/do-spaces-action/releases/tag/v1.1.14) · [Compare](https://github.com/betahuhn/do-spaces-action/compare/v1.1.13...v1.1.14) · [Tag](https://github.com/betahuhn/do-spaces-action/tree/v1.1.14) · Archive ([zip](https://github.com/betahuhn/do-spaces-action/archive/v1.1.14.zip) · [tar.gz](https://github.com/betahuhn/do-spaces-action/archive/v1.1.14.tar.gz))
