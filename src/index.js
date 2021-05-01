@@ -48,7 +48,7 @@ const run = async function() {
 	try {
 		const source = path.join(process.cwd(), SOURCE)
 		const permission = PERMISSION || 'public-read'
-		const versioning = VERSIONING !== undefined && VERSIONING !== false
+		const versioning = VERSIONING !== undefined && VERSIONING !== 'false'
 
 		let outDir = OUT_DIR
 		if (versioning) {
