@@ -31,7 +31,7 @@ const config = {
     }),
     versioning: getInput({
         key: 'versioning',
-        default: 'true'
+        default: 'false'
     }),
     cdnDomain: getInput({
         key: 'cdn_domain'
