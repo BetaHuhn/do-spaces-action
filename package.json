@@ -2,7 +2,7 @@
   "name": "do-spaces-action",
   "version": "1.1.16",
   "description": "Upload directories/files to DigitalOcean Spaces via GitHub Actions. Supports package/library versioning.",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "scripts": {
     "lint": "eslint ./src",
     "build": "ncc build src/index.js -o dist",
