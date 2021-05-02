@@ -1,3 +1,36 @@
+## [v2.0.0] - 2021-05-02
+
+[Release notes](https://github.com/betahuhn/do-spaces-action/releases/tag/v2.0.0) · [Compare](https://github.com/betahuhn/do-spaces-action/compare/v1.1.16...v2.0.0) · [Tag](https://github.com/betahuhn/do-spaces-action/tree/v2.0.0) · Archive ([zip](https://github.com/betahuhn/do-spaces-action/archive/v2.0.0.zip) · [tar.gz](https://github.com/betahuhn/do-spaces-action/archive/v2.0.0.tar.gz))
+
+### Updates
+
+- [`78c1e3f`](https://github.com/betahuhn/do-spaces-action/commit/78c1e3f)  Use external library for input parsing
+- [`c85bdcc`](https://github.com/betahuhn/do-spaces-action/commit/c85bdcc)  Await all uploads before continuing
+
+### Interface changes
+
+- [`b03a20b`](https://github.com/betahuhn/do-spaces-action/commit/b03a20b)  Fix lint errors
+
+### Bug fixes
+
+- [`d7d37f8`](https://github.com/betahuhn/do-spaces-action/commit/d7d37f8)  Parse versioning option correctly #141
+(Issues: [`#141`](https://github.com/betahuhn/do-spaces-action/issues/141))
+
+### Dependency updates
+
+- [`fc4f443`](https://github.com/betahuhn/do-spaces-action/commit/fc4f443)  Bump aws-sdk from 2.891.0 to 2.892.0
+- [`c033f7d`](https://github.com/betahuhn/do-spaces-action/commit/c033f7d)  Bump eslint from 7.24.0 to 7.25.0
+- [`b395878`](https://github.com/betahuhn/do-spaces-action/commit/b395878)  Bump aws-sdk from 2.892.0 to 2.893.0
+- [`6bbadbc`](https://github.com/betahuhn/do-spaces-action/commit/6bbadbc)  Bump aws-sdk from 2.893.0 to 2.894.0
+- [`76702f4`](https://github.com/betahuhn/do-spaces-action/commit/76702f4)  Bump aws-sdk from 2.894.0 to 2.895.0
+- [`b575c72`](https://github.com/betahuhn/do-spaces-action/commit/b575c72)  Bump @vercel/ncc from 0.28.3 to 0.28.4
+- [`93fd2a2`](https://github.com/betahuhn/do-spaces-action/commit/93fd2a2)  Bump aws-sdk from 2.895.0 to 2.896.0
+- [`d1ebfa9`](https://github.com/betahuhn/do-spaces-action/commit/d1ebfa9)  Update dependencies
+
+### Breaking changes
+
+- [`dec1557`](https://github.com/betahuhn/do-spaces-action/commit/dec1557)  Disable versioning by default
+
 ## [v1.1.16] - 2021-04-26
 
 [Release notes](https://github.com/betahuhn/do-spaces-action/releases/tag/v1.1.16) · [Compare](https://github.com/betahuhn/do-spaces-action/compare/v1.1.15...v1.1.16) · [Tag](https://github.com/betahuhn/do-spaces-action/tree/v1.1.16) · Archive ([zip](https://github.com/betahuhn/do-spaces-action/archive/v1.1.16.zip) · [tar.gz](https://github.com/betahuhn/do-spaces-action/archive/v1.1.16.tar.gz))
