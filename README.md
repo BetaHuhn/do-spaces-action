@@ -38,7 +38,7 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
-      - uses: BetaHuhn/do-spaces-action@v1
+      - uses: BetaHuhn/do-spaces-action@v2
         with:
           access_key: ${{ secrets.ACCESS_KEY}}
           secret_key: ${{ secrets.SECRET_KEY }}
@@ -57,13 +57,13 @@ To always use the latest version of the action add the `latest` tag to the actio
 uses: BetaHuhn/do-spaces-action@latest
 ```
 
-If you want to make sure that your workflow doesn't suddenly break when a new major version is released, use the `v1` tag instead (recommended usage):
+If you want to make sure that your workflow doesn't suddenly break when a new major version is released, use the `v2` tag instead (recommended usage):
 
 ```yml
-uses: BetaHuhn/do-spaces-action@v1
+uses: BetaHuhn/do-spaces-action@v2
 ```
 
-With the `v1` tag you will always get the latest non-breaking version which will include potential bug fixes in the future. If you use a specific version, make sure to regularly check if a new version is available, or enable Dependabot.
+With the `v2` tag you will always get the latest non-breaking version which will include potential bug fixes in the future. If you use a specific version, make sure to regularly check if a new version is available, or enable Dependabot.
 
 ## ⚙️ Action Inputs
 
@@ -144,7 +144,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - uses: BetaHuhn/do-spaces-action@v1
+      - uses: BetaHuhn/do-spaces-action@v2
         with:
           access_key: ${{ secrets.ACCESS_KEY}}
           secret_key: ${{ secrets.SECRET_KEY }}
@@ -167,7 +167,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - uses: BetaHuhn/do-spaces-action@v1
+      - uses: BetaHuhn/do-spaces-action@v2
         with:
           access_key: ${{ secrets.ACCESS_KEY}}
           secret_key: ${{ secrets.SECRET_KEY }}
@@ -191,7 +191,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - uses: BetaHuhn/do-spaces-action@v1
+      - uses: BetaHuhn/do-spaces-action@v2
         with:
           access_key: ${{ secrets.ACCESS_KEY}}
           secret_key: ${{ secrets.SECRET_KEY }}
@@ -214,7 +214,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - uses: BetaHuhn/do-spaces-action@v1
+      - uses: BetaHuhn/do-spaces-action@v2
         with:
           access_key: ${{ secrets.ACCESS_KEY}}
           secret_key: ${{ secrets.SECRET_KEY }}
@@ -239,7 +239,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - uses: BetaHuhn/do-spaces-action@v1
+      - uses: BetaHuhn/do-spaces-action@v2
         with:
           access_key: ${{ secrets.ACCESS_KEY}}
           secret_key: ${{ secrets.SECRET_KEY }}
@@ -271,7 +271,7 @@ jobs:
           description: Uploading files to DO Spaces
           environment: production
 
-      - uses: BetaHuhn/do-spaces-action@v1
+      - uses: BetaHuhn/do-spaces-action@v2
         name: upload to spaces
         id: spaces
         with:
