@@ -1,40 +1,15 @@
 const core = require('@actions/core')
 const fs = require('fs')
 const path = require('path')
+
+const config = require('./config')
 const S3 = require('./interface')
 
-const SOURCE = core.getInput('source', {
-	required: true
-})
-const OUT_DIR = core.getInput('out_dir', {
-	required: false
-})
-const SPACE_NAME = core.getInput('space_name', {
-	required: true
-})
-const SPACE_REGION = core.getInput('space_region', {
-	required: true
-})
-const ACCESS_KEY = core.getInput('access_key', {
-	required: true
-})
-const SECRET_KEY = core.getInput('secret_key', {
-	required: true
-})
-const VERSIONING = core.getInput('versioning', {
-	required: false
-})
-const CDN_DOMAIN = core.getInput('cdn_domain', {
-	required: false
-})
-const PERMISSION = core.getInput('permission', {
-	required: false
-})
-
-const getVersion = function(value) {
+const getVersion = () => {
 	try {
-		const pkgPath = (typeof value === 'string' && value !== 'true') ? value : ''
+		const pkgPath = config.version !== 'true' ? config.version : ''
 		const raw = fs.readFileSync(path.join(pkgPath, 'package.json')).toString()
+		
 		const version = JSON.parse(raw).version
 		if (!version) return ''
 
@@ -44,82 +19,84 @@ const getVersion = function(value) {
 	}
 }
 
-const run = async function() {
-	try {
-		const source = path.join(process.cwd(), SOURCE)
-		const permission = PERMISSION || 'public-read'
-		const versioning = VERSIONING !== undefined && VERSIONING !== 'false'
+const run = async () => {
+	const shouldVersion = config.versioning !== 'false'
 
-		let outDir = OUT_DIR
-		if (versioning) {
-			const version = getVersion(VERSIONING)
-			core.debug('using version: ' + version)
-			outDir = path.join(OUT_DIR, version)
-		}
+	let outDir = config.outDir
+	if (shouldVersion) {
+		const version = getVersion()
 
-		core.debug(outDir)
+		core.debug('using version: ' + version)
 
-		const config = {
-			bucket: SPACE_NAME,
-			region: SPACE_REGION,
-			access_key: ACCESS_KEY,
-			secret_key: SECRET_KEY,
-			permission: permission
-		}
-		const s3 = new S3(config)
-
-		const fileStat = await fs.promises.stat(source)
-		const isFile = fileStat.isFile()
-		if (isFile) {
-			const fileName = path.basename(source)
-			const s3Path = path.join(outDir, fileName)
-
-			core.debug('Uploading file: ' + s3Path)
-			await s3.upload(source, s3Path)
-
-			if (versioning) {
-				const s3PathLatest = path.join(OUT_DIR, 'latest', fileName)
-
-				core.debug('Uploading file to latest: ' + s3PathLatest)
-				await s3.upload(source, s3PathLatest)
-			}
-		} else {
-			core.debug('Uploading directory')
-			const uploadFolder = async (currentFolder) => {
-				const files = await fs.promises.readdir(currentFolder)
-
-				files.forEach(async (file) => {
-					const fullPath = path.join(currentFolder, file)
-					const stat = await fs.promises.stat(fullPath)
-
-					if (stat.isFile()) {
-						const s3Path = path.join(outDir, path.relative(source, fullPath))
-						core.debug('Uploading file: ' + s3Path)
-						await s3.upload(fullPath, s3Path)
-
-						if (versioning) {
-							const s3PathLatest = path.join(OUT_DIR, 'latest', path.relative(source, fullPath))
-							core.debug('Uploading file to latest: ' + s3PathLatest)
-							await s3.upload(fullPath, s3PathLatest)
-						}
-					} else {
-						uploadFolder(fullPath)
-					}
-				})
-			}
-
-			await uploadFolder(source)
-		}
-
-		const outputPath = CDN_DOMAIN ? `https://${ CDN_DOMAIN }/${ outDir }` : `https://${ SPACE_NAME }.${ SPACE_REGION }.digitaloceanspaces.com/${ outDir }`
-
-		core.info(`Files uploaded to ${ outputPath }`)
-		core.setOutput('output_url', outputPath)
-
-	} catch (err) {
-		core.debug(err)
-		core.setFailed(err.message)
+		outDir = path.join(config.outDir, version)
 	}
+
+	core.debug(outDir)
+
+	const s3 = new S3({
+		bucket: config.spaceName,
+		region: config.spaceRegion,
+		access_key: config.accessKey,
+		secret_key: config.secretKey,
+		permission: config.permission
+	})
+
+	const fileStat = await fs.promises.stat(config.source)
+	const isFile = fileStat.isFile()
+
+	if (isFile) {
+		const fileName = path.basename(config.source)
+		const s3Path = path.join(outDir, fileName)
+
+		core.debug('Uploading file: ' + s3Path)
+		await s3.upload(config.source, s3Path)
+
+		if (shouldVersion) {
+			const s3PathLatest = path.join(config.outDir, 'latest', fileName)
+
+			core.debug('Uploading file to latest: ' + s3PathLatest)
+			await s3.upload(config.source, s3PathLatest)
+		}
+	} else {
+		core.debug('Uploading directory')
+
+		const uploadFolder = async (currentFolder) => {
+			const files = await fs.promises.readdir(currentFolder)
+
+			files.forEach(async (file) => {
+				const fullPath = path.join(currentFolder, file)
+				const stat = await fs.promises.stat(fullPath)
+
+				if (stat.isFile()) {
+					const s3Path = path.join(outDir, path.relative(config.source, fullPath))
+
+					core.debug('Uploading file: ' + s3Path)
+					await s3.upload(fullPath, s3Path)
+
+					if (shouldVersion) {
+						const s3PathLatest = path.join(config.outDir, 'latest', path.relative(config.source, fullPath))
+						
+						core.debug('Uploading file to latest: ' + s3PathLatest)
+						await s3.upload(fullPath, s3PathLatest)
+					}
+				} else {
+					uploadFolder(fullPath)
+				}
+			})
+		}
+
+		await uploadFolder(config.source)
+	}
+
+	const outputPath = config.cdnDomain ? `https://${ config.cdnDomain }/${ outDir }` : `https://${ config.spaceName }.${ config.spaceRegion }.digitaloceanspaces.com/${ outDir }`
+
+	core.info(`Files uploaded to ${ outputPath }`)
+	core.setOutput('output_url', outputPath)
 }
 
 run()
+	.then(() => {})
+	.catch((err) => {
+		core.error(err)
+		core.setFailed(err.message)
+	})

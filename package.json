@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "lint": "eslint ./src",
-    "build": "ncc build src/index.js -o dist"
+    "build": "ncc build src/index.js -o dist",
+    "start": "node src/index.js"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,7 @@
   "homepage": "https://github.com/betahuhn/do-spaces-action#readme",
   "dependencies": {
     "@actions/core": "^1.2.7",
+    "action-input-parser": "^1.0.1",
     "aws-sdk": "^2.896.0",
     "mime-types": "^2.1.30"
   },
