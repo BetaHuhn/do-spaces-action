@@ -1,6 +1,6 @@
 <div align="center">
   
-# do-spaces-action
+# DigitalOcean Spaces Action
 
 [![Build](https://github.com/BetaHuhn/do-spaces-action/workflows/Build/badge.svg)](https://github.com/BetaHuhn/do-spaces-action/actions?query=workflow%3ABuild) [![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/BetaHuhn/do-spaces-action/blob/master/LICENSE) ![David](https://img.shields.io/david/betahuhn/do-spaces-action)
 
@@ -12,7 +12,7 @@ Upload directories/files to DigitalOcean Spaces via GitHub Actions.
 
 Use [do-spaces-action](https://github.com/BetaHuhn/do-spaces-action) to deploy a file or directory to your DigitalOcean Space with GitHub Actions. This can be used to host your static site, or as an self-hosted alternative to something like JSDelivr for serving your JS files/library via a CDN. [do-spaces-action](https://github.com/BetaHuhn/do-spaces-action) can also automatically grab the version number from the package.json and use it to host multiple versions at once (more info [below](#versioning)).
 
-## 🚀 Features
+## ⭐ Features
 
 - upload a single file or whole directories
 - specify output directory on your Space
@@ -24,36 +24,109 @@ Use [do-spaces-action](https://github.com/BetaHuhn/do-spaces-action) to deploy a
 
 Create a `.yml` file in your `.github/workflows` folder (you can find more info about the structure in the [GitHub Docs](https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions)):
 
-```yml
-- uses: BetaHuhn/do-spaces-action@master
-  with:
-    source: more info below
-```
-
-In order to access your DigitalOcean Space, you have to setup a few [Repository Secrets](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository):
-
-- *ACCESS_KEY* - Your DigitalOcean access key (generate one [here](https://cloud.digitalocean.com/account/api/tokens))
-- *SECRET_KEY* - Your DigitalOcean secret key (generate one [here](https://cloud.digitalocean.com/account/api/tokens))
-- *SPACE_NAME* - The name of your DigitalOcean Space.
-- *SPACE_REGION* - The region of your DigitalOcean Space.
-
-## ⚙️ Configuration
-
-Here are all the parameters [do-spaces-action](https://github.com/BetaHuhn/do-spaces-action) takes:
+**.github/workflows/upload.yml**
 
 ```yml
-access_key: your DigitalOcean access key (best to set it as a repo secret)
-secret_key: your DigitalOcean access key (best to set it as a repo secret)
-space_name: name of your DigitalOcean space
-space_region: region of your DigitalOcean space
-source: path to source file or folder (what you want to upload)
-out_dir: path to the output directory on your space (default is the root dir)
-versioning: enable versioning (either set it to true or specify path to package.json)
-cdn_domain: custom domain pointing to your CDN endpoint
-permission: change the permission of the uploaded file (default public-read)
+name: Upload to DO Spaces
+on:
+  push:
+    branches:
+      - master
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@master
+      - uses: BetaHuhn/do-spaces-action@v1
+        with:
+          access_key: ${{ secrets.ACCESS_KEY}}
+          secret_key: ${{ secrets.SECRET_KEY }}
+          space_name: ${{ secrets.SPACE_NAME }}
+          space_region: ${{ secrets.SPACE_REGION }}
+          source: src
 ```
 
-## 🛠️ Examples
+More info on how to specify what files to upload where [below](#%EF%B8%8F-sync-configuration).
+
+### Action Versioning
+
+To always use the latest version of the action add the `latest` tag to the action name like this:
+
+```yml
+uses: BetaHuhn/do-spaces-action@latest
+```
+
+If you want to make sure that your workflow doesn't suddenly break when a new major version is released, use the `v1` tag instead (recommended usage):
+
+```yml
+uses: BetaHuhn/do-spaces-action@v1
+```
+
+With the `v1` tag you will always get the latest non-breaking version which will include potential bug fixes in the future. If you use a specific version, make sure to regularly check if a new version is available, or enable Dependabot.
+
+## ⚙️ Action Inputs
+
+Here are all the inputs [do-spaces-action](https://github.com/BetaHuhn/do-spaces-action) takes:
+
+| Key | Value | Required | Default |
+| ------------- | ------------- | ------------- | ------------- |
+| `access_key` | Your DigitalOcean access key - [more info]() | **Yes** | N/A |
+| `secret_key` | Your DigitalOcean secret key - [more info]() | **Yes** | N/A |
+| `space_name` | The name of your DigitalOcean Space | **Yes** | N/A |
+| `space_region` | The region of your DigitalOcean Space | **Yes** | N/A |
+| `source` | Path to the source file or folder (what you want to upload) - [more info]() | **Yes** | N/A |
+| `out_dir` | Path to the output directory in your Space (where you want to upload to) - [more info]() | **No** | `/` |
+| `versioning` | Enable versioning (either set it to true or specify path to package.json) - [more info]() | **No** | `false` |
+| `cdn_domain` | Custom domain pointing to your CDN endpoint - [more info]() | **No** | N/A |
+| `permission` | Access permissions of the uploaded files - [more info]() | **No** | `public-read` |
+
+### Authentication
+
+In order to access your DigitalOcean Space, you have to specify a few required values. The `access_key` and `secret_key` can be generated on your DigitalOcean [Account Page](https://cloud.digitalocean.com/account/api/tokens). The `space_name` and `space_region` are different based on your created Space.
+
+It is recommended to set them as [Repository Secrets](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository).
+
+### Source
+
+The `source` input can either point to a single file or to a whole directory which should be uploaded. The path is relative to the root of your repository.
+
+[See example]()
+
+### Output directory
+
+By default [do-spaces-action](https://github.com/BetaHuhn/do-spaces-action) will upload all files to the root of your Space. You can specify a different output directory with the `out_dir` input.
+
+[See example]()
+
+### Versioning
+
+[do-spaces-action](https://github.com/BetaHuhn/do-spaces-action) also supports versioning and can detect the current version from your `package.json` and then upload the file/s to a folder with the version as the name. Let's suppose you bump the version of your project from `v2.3.0` to `v2.4.0`. Both versions would remain on your Space, under different paths:
+
+- `v2.3.0` -> `https://SPACE.fra1.digitaloceanspaces.com/js/v2.3.0/index.min.js`
+- `v2.4.0` -> `https://SPACE.fra1.digitaloceanspaces.com/js/v2.4.0/index.min.js`
+
+The most recent version will be available with the `latest` tag:
+
+- `latest` -> `https://SPACE.fra1.digitaloceanspaces.com/js/latest/index.min.js`
+
+The `versioning` parameter can be set to true/false, or a string representing the path to the `package.json` file.
+
+[See example]()
+
+### CDN Domain
+
+Instead of outputting the normal DigitalOcean domain `https://SPACE.fra1.digitaloceanspaces.com/`, you can also specify your custom CDN domain with `cdn_domain`.
+
+**Note:** `https://SPACE.REGION.digitaloceanspaces.com/` is still used to connect to your Space, [do-spaces-action](https://github.com/BetaHuhn/do-spaces-action) will just use it when logging it and assigning it to the action output variable `output_url`.
+
+[See example]()
+
+### File permissions
+
+By default all uploaded files have their access permission set to `public-read`. This means that anyone can access them via their own Space URL. If you want to block public access, you can set `permission` to `private`.
+
+## 📖 Examples
 
 Here are a few examples to help you get started!
 
@@ -71,13 +144,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - uses: BetaHuhn/do-spaces-action@master
+      - uses: BetaHuhn/do-spaces-action@v1
         with:
           access_key: ${{ secrets.ACCESS_KEY}}
           secret_key: ${{ secrets.SECRET_KEY }}
           space_name: ${{ secrets.SPACE_NAME }}
           space_region: ${{ secrets.SPACE_REGION }}
-          source: "src"
+          source: src
 ```
 
 ### Custom output path
@@ -94,14 +167,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - uses: BetaHuhn/do-spaces-action@master
+      - uses: BetaHuhn/do-spaces-action@v1
         with:
           access_key: ${{ secrets.ACCESS_KEY}}
           secret_key: ${{ secrets.SECRET_KEY }}
           space_name: ${{ secrets.SPACE_NAME }}
           space_region: ${{ secrets.SPACE_REGION }}
-          source: "src"
-          out_dir: "dist"
+          source: src
+          out_dir: dist
 ```
 
 ### Single file upload
@@ -118,25 +191,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - uses: BetaHuhn/do-spaces-action@master
+      - uses: BetaHuhn/do-spaces-action@v1
         with:
           access_key: ${{ secrets.ACCESS_KEY}}
           secret_key: ${{ secrets.SECRET_KEY }}
           space_name: ${{ secrets.SPACE_NAME }}
           space_region: ${{ secrets.SPACE_REGION }}
-          source: "path/to/file.js"
+          source: path/to/file.js
 ```
 
-### Versioning
+### Use package.json version
 
-[do-spaces-action](https://github.com/BetaHuhn/do-spaces-action) also supports versioning and can detect the current version from your `package.json` and then upload the file/s to a folder with the version as the name. Let's suppose you bump the version of your project from `v2.3.0` to `v2.4.0`. Both versions would remain on your Space, under different paths:
-
-- `v2.3.0` -> `https://SPACE.fra1.digitaloceanspaces.com/js/v2.3.0/index.min.js`
-- `v2.4.0` -> `https://SPACE.fra1.digitaloceanspaces.com/js/v2.4.0/index.min.js`
-
-The most recent version will be available with the `latest` tag:
-
-- `latest` -> `https://SPACE.fra1.digitaloceanspaces.com/js/latest/index.min.js`
+This example will run everytime you create a new release and then upload the file `dist/index.min.js` to both the `latest` and `vX.X.X` folder in the js directory in your Space.
 
 ```yml
 name: Upload to DO Spaces
@@ -148,22 +214,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - uses: BetaHuhn/do-spaces-action@master
+      - uses: BetaHuhn/do-spaces-action@v1
         with:
           access_key: ${{ secrets.ACCESS_KEY}}
           secret_key: ${{ secrets.SECRET_KEY }}
           space_name: ${{ secrets.SPACE_NAME }}
           space_region: ${{ secrets.SPACE_REGION }}
-          source: "dist/index.min.js"
-          out_dir: "js"
+          source: dist/index.min.js
+          out_dir: js
           versioning: true
 ```
 
 The `versioning` parameter can be set to true/false, or a string representing the path to the `package.json` file.
 
-### Custom CDN domain
-
-Instead of outputting the normal DigitalOcean domain `https://SPACE.fra1.digitaloceanspaces.com/`, you can also specify your custom CDN domain:
+### Specify a custom CDN domain
 
 ```yml
 name: Upload to DO Spaces
@@ -175,17 +239,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - uses: BetaHuhn/do-spaces-action@master
+      - uses: BetaHuhn/do-spaces-action@v1
         with:
           access_key: ${{ secrets.ACCESS_KEY}}
           secret_key: ${{ secrets.SECRET_KEY }}
           space_name: ${{ secrets.SPACE_NAME }}
           space_region: ${{ secrets.SPACE_REGION }}
-          source: "src"
-          cdn_domain: "cdn.example.com"
+          source: src
+          cdn_domain: cdn.example.com
 ```
-
-**Note:** `https://SPACE.fra1.digitaloceanspaces.com/` is still used to connect to your Space, [do-spaces-action](https://github.com/BetaHuhn/do-spaces-action) will just use it when logging it and assigning it to the action output variable `output_url`.
 
 ### Create deployment on GitHub
 
@@ -206,10 +268,10 @@ jobs:
         id: deployment
         with:
           token: ${{ secrets.GITHUB_TOKEN}}
-          description: "Uploading files to DO Spaces"
+          description: Uploading files to DO Spaces
           environment: production
 
-      - uses: BetaHuhn/do-spaces-action@master
+      - uses: BetaHuhn/do-spaces-action@v1
         name: upload to spaces
         id: spaces
         with:
@@ -217,8 +279,8 @@ jobs:
           secret_key: ${{ secrets.SECRET_KEY }}
           space_name: ${{ secrets.SPACE_NAME }}
           space_region: ${{ secrets.SPACE_REGION }}
-          source: "src"
-          out_dir: "dist"
+          source: src
+          out_dir: dist
           versioning: true
 
       - name: update deployment status
@@ -248,9 +310,11 @@ If you have an idea, feel free to [open an issue](https://github.com/BetaHuhn/do
 
 Issues and PRs are very welcome!
 
-Please check out the [contributing guide](CONTRIBUTING.md) before you start.
+The actual source code of this library is in the `src` folder.
 
-This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). To see differences with previous versions refer to the [CHANGELOG](CHANGELOG.md).
+- run `yarn lint` or `npm run lint` to run eslint.
+- run `yarn start` or `npm run start` to run the Action locally.
+- run `yarn build` or `npm run build` to produce a production version in the `dist` folder.
 
 ## ❔ About
 
@@ -258,8 +322,10 @@ This project was developed by me ([@betahuhn](https://github.com/BetaHuhn)) in m
 
 [![Donate via PayPal](https://img.shields.io/badge/paypal-donate-009cde.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=394RTSBEEEFEE)
 
-## License
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/F1F81S2RK)
 
-Copyright 2020 Maximilian Schiller
+## 📄 License
+
+Copyright 2021 Maximilian Schiller
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
