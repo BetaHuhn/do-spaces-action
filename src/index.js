@@ -4,27 +4,14 @@ const path = require('path')
 
 const config = require('./config')
 const S3 = require('./interface')
-
-const getVersion = () => {
-	try {
-		const pkgPath = config.version !== 'true' ? config.version : ''
-		const raw = fs.readFileSync(path.join(pkgPath, 'package.json')).toString()
-		
-		const version = JSON.parse(raw).version
-		if (!version) return ''
-
-		return version.charAt(0) !== 'v' ? `v${ version }` : version
-	} catch (err) {
-		return ''
-	}
-}
+const { forEach, getVersion } = require('./helpers')
 
 const run = async () => {
 	const shouldVersion = config.versioning !== 'false'
 
 	let outDir = config.outDir
 	if (shouldVersion) {
-		const version = getVersion()
+		const version = getVersion(config.versioning)
 
 		core.debug('using version: ' + version)
 
@@ -63,7 +50,7 @@ const run = async () => {
 		const uploadFolder = async (currentFolder) => {
 			const files = await fs.promises.readdir(currentFolder)
 
-			files.forEach(async (file) => {
+			await forEach(files, async (file) => {
 				const fullPath = path.join(currentFolder, file)
 				const stat = await fs.promises.stat(fullPath)
 
