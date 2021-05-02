@@ -14,11 +14,11 @@ Use [do-spaces-action](https://github.com/BetaHuhn/do-spaces-action) to deploy a
 
 ## ⭐ Features
 
-- upload a single file or whole directories
-- specify output directory on your Space
-- automatic versioning of your uploads
-- use your CDN endpoint (custom domain)
-- integrates with GitHub deployments
+- Upload a [single file](#single-file-upload) or [whole directories](#basic-example)
+- Specify [output directory](#output-directory) on your Space
+- Automatic [versioning](#versioning) of your uploads
+- Use your [CDN endpoint](#cdn-domain) (custom domain)
+- Integrates with [GitHub deployments](#create-deployment-on-github)
 
 ## 📚 Usage
 
@@ -47,7 +47,7 @@ jobs:
           source: src
 ```
 
-More info on how to specify what files to upload where [below](#%EF%B8%8F-sync-configuration).
+More info on how to specify what files to upload where [below](#%EF%B8%8F-action-inputs).
 
 ### Action Versioning
 
@@ -71,15 +71,15 @@ Here are all the inputs [do-spaces-action](https://github.com/BetaHuhn/do-spaces
 
 | Key | Value | Required | Default |
 | ------------- | ------------- | ------------- | ------------- |
-| `access_key` | Your DigitalOcean access key - [more info]() | **Yes** | N/A |
-| `secret_key` | Your DigitalOcean secret key - [more info]() | **Yes** | N/A |
+| `access_key` | Your DigitalOcean access key - [more info](#authentication) | **Yes** | N/A |
+| `secret_key` | Your DigitalOcean secret key - [more info](#authentication) | **Yes** | N/A |
 | `space_name` | The name of your DigitalOcean Space | **Yes** | N/A |
 | `space_region` | The region of your DigitalOcean Space | **Yes** | N/A |
-| `source` | Path to the source file or folder (what you want to upload) - [more info]() | **Yes** | N/A |
-| `out_dir` | Path to the output directory in your Space (where you want to upload to) - [more info]() | **No** | `/` |
-| `versioning` | Enable versioning (either set it to true or specify path to package.json) - [more info]() | **No** | `false` |
-| `cdn_domain` | Custom domain pointing to your CDN endpoint - [more info]() | **No** | N/A |
-| `permission` | Access permissions of the uploaded files - [more info]() | **No** | `public-read` |
+| `source` | Path to the source file or folder (what you want to upload) - [more info](#source) | **Yes** | N/A |
+| `out_dir` | Path to the output directory in your Space (where you want to upload to) - [more info](#output-directory) | **No** | `/` |
+| `versioning` | Enable versioning (either set it to true or specify path to package.json) - [more info](#versioning) | **No** | `false` |
+| `cdn_domain` | Custom domain pointing to your CDN endpoint - [more info](#cdn-domain) | **No** | N/A |
+| `permission` | Access permissions of the uploaded files - [more info](#file-permissions) | **No** | `public-read` |
 
 ### Authentication
 
@@ -91,13 +91,13 @@ It is recommended to set them as [Repository Secrets](https://docs.github.com/en
 
 The `source` input can either point to a single file or to a whole directory which should be uploaded. The path is relative to the root of your repository.
 
-[See example]()
+[See example](#single-file-upload)
 
 ### Output directory
 
 By default [do-spaces-action](https://github.com/BetaHuhn/do-spaces-action) will upload all files to the root of your Space. You can specify a different output directory with the `out_dir` input.
 
-[See example]()
+[See example](#custom-output-path)
 
 ### Versioning
 
@@ -112,7 +112,7 @@ The most recent version will be available with the `latest` tag:
 
 The `versioning` parameter can be set to true/false, or a string representing the path to the `package.json` file.
 
-[See example]()
+[See example](#use-packagejson-version)
 
 ### CDN Domain
 
@@ -120,7 +120,7 @@ Instead of outputting the normal DigitalOcean domain `https://SPACE.fra1.digital
 
 **Note:** `https://SPACE.REGION.digitaloceanspaces.com/` is still used to connect to your Space, [do-spaces-action](https://github.com/BetaHuhn/do-spaces-action) will just use it when logging it and assigning it to the action output variable `output_url`.
 
-[See example]()
+[See example](#specify-a-custom-cdn-domain)
 
 ### File permissions
 
