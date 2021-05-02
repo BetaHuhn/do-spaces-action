@@ -13,7 +13,7 @@ const getVersion = (value) => {
 	try {
 		const pkgPath = value !== 'true' ? value : ''
 		const raw = fs.readFileSync(path.join(pkgPath, 'package.json')).toString()
-		
+
 		const version = JSON.parse(raw).version
 		if (!version) return ''
 
@@ -24,6 +24,6 @@ const getVersion = (value) => {
 }
 
 module.exports = {
-    forEach,
-    getVersion
+	forEach,
+	getVersion
 }

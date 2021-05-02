@@ -62,7 +62,7 @@ const run = async () => {
 
 					if (shouldVersion) {
 						const s3PathLatest = path.join(config.outDir, 'latest', path.relative(config.source, fullPath))
-						
+
 						core.debug('Uploading file to latest: ' + s3PathLatest)
 						await s3.upload(fullPath, s3PathLatest)
 					}
