@@ -1,3 +1,12 @@
+## [v2.0.1] - 2021-05-03
+
+[Release notes](https://github.com/betahuhn/do-spaces-action/releases/tag/v2.0.1) · [Compare](https://github.com/betahuhn/do-spaces-action/compare/v2.0.0...v2.0.1) · [Tag](https://github.com/betahuhn/do-spaces-action/tree/v2.0.1) · Archive ([zip](https://github.com/betahuhn/do-spaces-action/archive/v2.0.1.zip) · [tar.gz](https://github.com/betahuhn/do-spaces-action/archive/v2.0.1.tar.gz))
+
+### Bug fixes
+
+- [`7d64fc9`](https://github.com/betahuhn/do-spaces-action/commit/7d64fc9)  Use correct root as default output directory #142
+(Issues: [`#142`](https://github.com/betahuhn/do-spaces-action/issues/142))
+
 ## [v2.0.0] - 2021-05-02
 
 [Release notes](https://github.com/betahuhn/do-spaces-action/releases/tag/v2.0.0) · [Compare](https://github.com/betahuhn/do-spaces-action/compare/v1.1.16...v2.0.0) · [Tag](https://github.com/betahuhn/do-spaces-action/tree/v2.0.0) · Archive ([zip](https://github.com/betahuhn/do-spaces-action/archive/v2.0.0.zip) · [tar.gz](https://github.com/betahuhn/do-spaces-action/archive/v2.0.0.tar.gz))
