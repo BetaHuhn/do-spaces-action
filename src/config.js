@@ -11,7 +11,7 @@ const config = {
 	}),
 	outDir: getInput({
 		key: 'out_dir',
-		default: '/'
+		default: ''
 	}),
 	spaceName: getInput({
 		key: 'space_name',
