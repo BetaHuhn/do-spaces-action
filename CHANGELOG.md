@@ -1,3 +1,20 @@
+## [v2.0.7] - 2021-06-14
+
+[Release notes](https://github.com/betahuhn/do-spaces-action/releases/tag/v2.0.7) · [Compare](https://github.com/betahuhn/do-spaces-action/compare/v2.0.6...v2.0.7) · [Tag](https://github.com/betahuhn/do-spaces-action/tree/v2.0.7) · Archive ([zip](https://github.com/betahuhn/do-spaces-action/archive/v2.0.7.zip) · [tar.gz](https://github.com/betahuhn/do-spaces-action/archive/v2.0.7.tar.gz))
+
+### Dependency updates
+
+- [`e805a95`](https://github.com/betahuhn/do-spaces-action/commit/e805a95)  Bump action-input-parser from 1.2.2 to 1.2.3
+- [`1f6bbb7`](https://github.com/betahuhn/do-spaces-action/commit/1f6bbb7)  Bump eslint from 7.27.0 to 7.28.0
+- [`57100d9`](https://github.com/betahuhn/do-spaces-action/commit/57100d9)  Bump aws-sdk from 2.921.0 to 2.922.0
+- [`5bb0adc`](https://github.com/betahuhn/do-spaces-action/commit/5bb0adc)  Bump aws-sdk from 2.922.0 to 2.923.0
+- [`4ffd832`](https://github.com/betahuhn/do-spaces-action/commit/4ffd832)  Bump @actions/core from 1.3.0 to 1.4.0
+- [`2629822`](https://github.com/betahuhn/do-spaces-action/commit/2629822)  Bump trim-newlines from 3.0.0 to 3.0.1
+- [`192b9f3`](https://github.com/betahuhn/do-spaces-action/commit/192b9f3)  Bump glob-parent from 5.1.1 to 5.1.2
+- [`7a4fa40`](https://github.com/betahuhn/do-spaces-action/commit/7a4fa40)  Bump aws-sdk from 2.923.0 to 2.924.0
+- [`aca2eab`](https://github.com/betahuhn/do-spaces-action/commit/aca2eab)  Bump aws-sdk from 2.924.0 to 2.925.0
+- [`ef11d3f`](https://github.com/betahuhn/do-spaces-action/commit/ef11d3f)  Bump aws-sdk from 2.925.0 to 2.926.0
+
 ## [v2.0.6] - 2021-06-07
 
 [Release notes](https://github.com/betahuhn/do-spaces-action/releases/tag/v2.0.6) · [Compare](https://github.com/betahuhn/do-spaces-action/compare/v2.0.5...v2.0.6) · [Tag](https://github.com/betahuhn/do-spaces-action/tree/v2.0.6) · Archive ([zip](https://github.com/betahuhn/do-spaces-action/archive/v2.0.6.zip) · [tar.gz](https://github.com/betahuhn/do-spaces-action/archive/v2.0.6.tar.gz))
