@@ -30,7 +30,7 @@
     "@actions/core": "^1.4.0",
     "action-input-parser": "^1.2.10",
     "aws-sdk": "^2.954.0",
-    "mime-types": "^2.1.31"
+    "mime-types": "^2.1.32"
   },
   "devDependencies": {
     "@betahuhn/config": "^1.1.0",
