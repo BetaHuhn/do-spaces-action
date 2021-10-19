@@ -29,7 +29,7 @@
   "dependencies": {
     "@actions/core": "^1.6.0",
     "action-input-parser": "^1.2.21",
-    "aws-sdk": "^2.1009.0",
+    "aws-sdk": "^2.1010.0",
     "mime-types": "^2.1.33"
   },
   "devDependencies": {
