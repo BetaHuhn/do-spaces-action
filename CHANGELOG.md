@@ -1,3 +1,11 @@
+## [v2.0.36] - 2022-01-03
+
+[Release notes](https://github.com/betahuhn/do-spaces-action/releases/tag/v2.0.36) · [Compare](https://github.com/betahuhn/do-spaces-action/compare/v2.0.35...v2.0.36) · [Tag](https://github.com/betahuhn/do-spaces-action/tree/v2.0.36) · Archive ([zip](https://github.com/betahuhn/do-spaces-action/archive/v2.0.36.zip) · [tar.gz](https://github.com/betahuhn/do-spaces-action/archive/v2.0.36.tar.gz))
+
+### Dependency updates
+
+- [`47d33a3`](https://github.com/betahuhn/do-spaces-action/commit/47d33a3)  Bump action-input-parser from 1.2.25 to 1.2.26
+
 ## [v2.0.35] - 2021-12-27
 
 [Release notes](https://github.com/betahuhn/do-spaces-action/releases/tag/v2.0.35) · [Compare](https://github.com/betahuhn/do-spaces-action/compare/v2.0.34...v2.0.35) · [Tag](https://github.com/betahuhn/do-spaces-action/tree/v2.0.35) · Archive ([zip](https://github.com/betahuhn/do-spaces-action/archive/v2.0.35.zip) · [tar.gz](https://github.com/betahuhn/do-spaces-action/archive/v2.0.35.tar.gz))
