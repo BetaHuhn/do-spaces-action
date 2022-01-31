@@ -1,3 +1,20 @@
+## [v2.0.39] - 2022-01-31
+
+[Release notes](https://github.com/betahuhn/do-spaces-action/releases/tag/v2.0.39) · [Compare](https://github.com/betahuhn/do-spaces-action/compare/v2.0.38...v2.0.39) · [Tag](https://github.com/betahuhn/do-spaces-action/tree/v2.0.39) · Archive ([zip](https://github.com/betahuhn/do-spaces-action/archive/v2.0.39.zip) · [tar.gz](https://github.com/betahuhn/do-spaces-action/archive/v2.0.39.tar.gz))
+
+### Dependency updates
+
+- [`08c7fe1`](https://github.com/betahuhn/do-spaces-action/commit/08c7fe1)  Bump aws-sdk from 2.1058.0 to 2.1060.0
+- [`4888b8f`](https://github.com/betahuhn/do-spaces-action/commit/4888b8f)  Bump trim-off-newlines from 1.0.1 to 1.0.3
+- [`226612f`](https://github.com/betahuhn/do-spaces-action/commit/226612f)  Bump aws-sdk from 2.1060.0 to 2.1061.0
+- [`5b4db50`](https://github.com/betahuhn/do-spaces-action/commit/5b4db50)  Bump aws-sdk from 2.1061.0 to 2.1062.0
+- [`51ca2d4`](https://github.com/betahuhn/do-spaces-action/commit/51ca2d4)  Bump action-input-parser from 1.2.26 to 1.2.27
+- [`49f9726`](https://github.com/betahuhn/do-spaces-action/commit/49f9726)  Bump node-fetch from 2.6.2 to 2.6.7
+- [`4ca1624`](https://github.com/betahuhn/do-spaces-action/commit/4ca1624)  Bump aws-sdk from 2.1062.0 to 2.1063.0
+- [`eba6099`](https://github.com/betahuhn/do-spaces-action/commit/eba6099)  Bump aws-sdk from 2.1063.0 to 2.1064.0
+- [`ec313c5`](https://github.com/betahuhn/do-spaces-action/commit/ec313c5)  Bump aws-sdk from 2.1064.0 to 2.1065.0
+- [`cae6dcc`](https://github.com/betahuhn/do-spaces-action/commit/cae6dcc)  Bump aws-sdk from 2.1065.0 to 2.1066.0
+
 ## [v2.0.38] - 2022-01-17
 
 [Release notes](https://github.com/betahuhn/do-spaces-action/releases/tag/v2.0.38) · [Compare](https://github.com/betahuhn/do-spaces-action/compare/v2.0.37...v2.0.38) · [Tag](https://github.com/betahuhn/do-spaces-action/tree/v2.0.38) · Archive ([zip](https://github.com/betahuhn/do-spaces-action/archive/v2.0.38.zip) · [tar.gz](https://github.com/betahuhn/do-spaces-action/archive/v2.0.38.tar.gz))
