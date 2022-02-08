@@ -25,7 +25,7 @@ class S3Interface {
 			const options = {
 				Body: fileStream,
 				Bucket: this.bucket,
-				Key: path,
+				Key: path.replace(/\\/g, '/'),
 				ACL: this.permission,
 				ContentType: lookup(file) || 'text/plain'
 			}
