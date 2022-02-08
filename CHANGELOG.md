@@ -1,3 +1,12 @@
+## [v2.0.41] - 2022-02-08
+
+[Release notes](https://github.com/betahuhn/do-spaces-action/releases/tag/v2.0.41) · [Compare](https://github.com/betahuhn/do-spaces-action/compare/v2.0.40...v2.0.41) · [Tag](https://github.com/betahuhn/do-spaces-action/tree/v2.0.41) · Archive ([zip](https://github.com/betahuhn/do-spaces-action/archive/v2.0.41.zip) · [tar.gz](https://github.com/betahuhn/do-spaces-action/archive/v2.0.41.tar.gz))
+
+### Bug fixes
+
+- [`5b63136`](https://github.com/betahuhn/do-spaces-action/commit/5b63136)  Fix upload path on windows (#393)
+(Issues: [`#393`](https://github.com/betahuhn/do-spaces-action/issues/393))
+
 ## [v2.0.40] - 2022-02-07
 
 [Release notes](https://github.com/betahuhn/do-spaces-action/releases/tag/v2.0.40) · [Compare](https://github.com/betahuhn/do-spaces-action/compare/v2.0.39...v2.0.40) · [Tag](https://github.com/betahuhn/do-spaces-action/tree/v2.0.40) · Archive ([zip](https://github.com/betahuhn/do-spaces-action/archive/v2.0.40.zip) · [tar.gz](https://github.com/betahuhn/do-spaces-action/archive/v2.0.40.tar.gz))
