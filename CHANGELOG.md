@@ -1,3 +1,17 @@
+## [v2.0.60] - 2022-06-20
+
+[Release notes](https://github.com/betahuhn/do-spaces-action/releases/tag/v2.0.60) · [Compare](https://github.com/betahuhn/do-spaces-action/compare/v2.0.59...v2.0.60) · [Tag](https://github.com/betahuhn/do-spaces-action/tree/v2.0.60) · Archive ([zip](https://github.com/betahuhn/do-spaces-action/archive/v2.0.60.zip) · [tar.gz](https://github.com/betahuhn/do-spaces-action/archive/v2.0.60.tar.gz))
+
+### Dependency updates
+
+- [`2f65a69`](https://github.com/betahuhn/do-spaces-action/commit/2f65a69)  Bump action-input-parser from 1.2.33 to 1.2.34
+- [`a2e6663`](https://github.com/betahuhn/do-spaces-action/commit/a2e6663)  Bump aws-sdk from 2.1152.0 to 2.1153.0
+- [`5f24f6f`](https://github.com/betahuhn/do-spaces-action/commit/5f24f6f)  Bump aws-sdk from 2.1153.0 to 2.1154.0
+- [`50b346d`](https://github.com/betahuhn/do-spaces-action/commit/50b346d)  Bump @actions/core from 1.8.2 to 1.9.0
+- [`4689d9f`](https://github.com/betahuhn/do-spaces-action/commit/4689d9f)  Bump aws-sdk from 2.1154.0 to 2.1155.0
+- [`66b8452`](https://github.com/betahuhn/do-spaces-action/commit/66b8452)  Bump aws-sdk from 2.1155.0 to 2.1156.0
+- [`2f13f59`](https://github.com/betahuhn/do-spaces-action/commit/2f13f59)  Bump aws-sdk from 2.1156.0 to 2.1157.0
+
 ## [v2.0.59] - 2022-06-13
 
 [Release notes](https://github.com/betahuhn/do-spaces-action/releases/tag/v2.0.59) · [Compare](https://github.com/betahuhn/do-spaces-action/compare/v2.0.58...v2.0.59) · [Tag](https://github.com/betahuhn/do-spaces-action/tree/v2.0.59) · Archive ([zip](https://github.com/betahuhn/do-spaces-action/archive/v2.0.59.zip) · [tar.gz](https://github.com/betahuhn/do-spaces-action/archive/v2.0.59.tar.gz))
