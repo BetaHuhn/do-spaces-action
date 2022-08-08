@@ -31,7 +31,7 @@ name: Upload to DO Spaces
 on:
   push:
     branches:
-      - master
+      - main
 jobs:
   upload:
     runs-on: ubuntu-latest
