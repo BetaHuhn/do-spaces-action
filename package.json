@@ -28,7 +28,7 @@
   "homepage": "https://github.com/betahuhn/do-spaces-action#readme",
   "dependencies": {
     "@actions/core": "^1.9.1",
-    "action-input-parser": "^1.2.36",
+    "action-input-parser": "^1.2.37",
     "aws-sdk": "^2.1214.0",
     "mime-types": "^2.1.35"
   },
