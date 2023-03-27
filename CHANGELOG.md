@@ -1,3 +1,15 @@
+## [v2.0.100] - 2023-03-27
+
+[Release notes](https://github.com/betahuhn/do-spaces-action/releases/tag/v2.0.100) · [Compare](https://github.com/betahuhn/do-spaces-action/compare/v2.0.99...v2.0.100) · [Tag](https://github.com/betahuhn/do-spaces-action/tree/v2.0.100) · Archive ([zip](https://github.com/betahuhn/do-spaces-action/archive/v2.0.100.zip) · [tar.gz](https://github.com/betahuhn/do-spaces-action/archive/v2.0.100.tar.gz))
+
+### Dependency updates
+
+- [`b8da025`](https://github.com/betahuhn/do-spaces-action/commit/b8da025)  Bump aws-sdk from 2.1338.0 to 2.1339.0
+- [`c11dacc`](https://github.com/betahuhn/do-spaces-action/commit/c11dacc)  Bump aws-sdk from 2.1339.0 to 2.1340.0
+- [`b0d0dd0`](https://github.com/betahuhn/do-spaces-action/commit/b0d0dd0)  Bump aws-sdk from 2.1340.0 to 2.1341.0
+- [`d71ad47`](https://github.com/betahuhn/do-spaces-action/commit/d71ad47)  Bump aws-sdk from 2.1341.0 to 2.1342.0
+- [`6125ca1`](https://github.com/betahuhn/do-spaces-action/commit/6125ca1)  Bump aws-sdk from 2.1342.0 to 2.1343.0
+
 ## [v2.0.99] - 2023-03-20
 
 [Release notes](https://github.com/betahuhn/do-spaces-action/releases/tag/v2.0.99) · [Compare](https://github.com/betahuhn/do-spaces-action/compare/v2.0.98...v2.0.99) · [Tag](https://github.com/betahuhn/do-spaces-action/tree/v2.0.99) · Archive ([zip](https://github.com/betahuhn/do-spaces-action/archive/v2.0.99.zip) · [tar.gz](https://github.com/betahuhn/do-spaces-action/archive/v2.0.99.tar.gz))
