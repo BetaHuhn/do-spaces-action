@@ -1,3 +1,16 @@
+## [v2.0.117] - 2023-07-24
+
+[Release notes](https://github.com/betahuhn/do-spaces-action/releases/tag/v2.0.117) · [Compare](https://github.com/betahuhn/do-spaces-action/compare/v2.0.116...v2.0.117) · [Tag](https://github.com/betahuhn/do-spaces-action/tree/v2.0.117) · Archive ([zip](https://github.com/betahuhn/do-spaces-action/archive/v2.0.117.zip) · [tar.gz](https://github.com/betahuhn/do-spaces-action/archive/v2.0.117.tar.gz))
+
+### Dependency updates
+
+- [`11df08d`](https://github.com/betahuhn/do-spaces-action/commit/11df08d)  Bump aws-sdk from 2.1415.0 to 2.1416.0
+- [`0ad5cf9`](https://github.com/betahuhn/do-spaces-action/commit/0ad5cf9)  Bump aws-sdk from 2.1416.0 to 2.1417.0
+- [`d96f4e4`](https://github.com/betahuhn/do-spaces-action/commit/d96f4e4)  Bump word-wrap from 1.2.3 to 1.2.4
+- [`8940964`](https://github.com/betahuhn/do-spaces-action/commit/8940964)  Bump aws-sdk from 2.1417.0 to 2.1418.0
+- [`81acee2`](https://github.com/betahuhn/do-spaces-action/commit/81acee2)  Bump aws-sdk from 2.1418.0 to 2.1419.0
+- [`da06752`](https://github.com/betahuhn/do-spaces-action/commit/da06752)  Bump aws-sdk from 2.1419.0 to 2.1420.0
+
 ## [v2.0.116] - 2023-07-17
 
 [Release notes](https://github.com/betahuhn/do-spaces-action/releases/tag/v2.0.116) · [Compare](https://github.com/betahuhn/do-spaces-action/compare/v2.0.115...v2.0.116) · [Tag](https://github.com/betahuhn/do-spaces-action/tree/v2.0.116) · Archive ([zip](https://github.com/betahuhn/do-spaces-action/archive/v2.0.116.zip) · [tar.gz](https://github.com/betahuhn/do-spaces-action/archive/v2.0.116.tar.gz))
