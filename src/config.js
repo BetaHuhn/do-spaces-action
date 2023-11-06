@@ -6,7 +6,7 @@ const config = {
 		key: 'source',
 		required: true,
 		modifier: (val) => {
-			return path.join(process.cwd(), val)
+			return path.resolve(process.cwd(), val)
 		}
 	}),
 	outDir: getInput({
